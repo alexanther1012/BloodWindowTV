@@ -74,7 +74,7 @@
 				});
 
 			}
-			//funcion popup horatios canes
+			//funcion popup horatios cannes
 			function fnc_horarios(){
 				$.magnificPopup.open({
   					items: {
@@ -259,7 +259,7 @@
 									else{
 								?>
 
-								<a href="javascript:$('#btn_iniciar_sesion').click();"><img src="images/banners/dia_muertos.jpg" width="100%" height="460px" alt="Dia de muertos"></a>
+								<a id="btn_compuesto" href=""><img src="images/banners/dia_muertos.jpg" width="100%" height="460px" alt="Dia de muertos"></a>
 
 								<?php
 									}
@@ -275,11 +275,11 @@
 
 						<div class="content-panel" style="margin-bottom: 0px; background-color: rgb(53,00,00);">
 							<div style="height: 15%;" class="text-center">
-								<a href="sitgesfilmfestival.com/"><img src="images/banners/logofest2015.png" style="height:400%;width:30%;"></a>
+								<a href="https://sitgesfilmfestival.com/"><img src="images/banners/logofest2015.png" style="height:400%;width:30%;"></a>
 							</div>
 							
 						</div>
-						
+
 					<!-- END .with-sidebar-layout -->
 						<div class="content-panel">
 							<div class="panel-block banner-block" style="padding: 0px; margin-top: 20px; margin-bottom: -10px;">
@@ -502,7 +502,7 @@
 
 				$("#btn_nuevo_registro").magnificPopup({
   					items: {
-      					src: '<div class="box_nuevo_registro_add">'+
+      					src: '<div class="box_nuevo_registro">'+
       						'<form class="form-horizontal" name="frm_nuevo_registro"  id="frm_nuevo_registro"> ' +
       						'<div id="box_nuevo_registro_content">'+
       						'<div class="col-md-10"> ' +
@@ -556,7 +556,7 @@
  									var password = $("#password").val();
 									var reppassword = $("#reppassword").val();
 									if(password == reppassword){
- 										var save = $.ajax({url:"nuevoUsuario2.php",data:"correo="+email+"&password="+password+"&nombre="+nombre+"&apellidos="+apellidos+"&pais="+pais+"&rol=CLIENTE",method:"POST"});
+ 										var save = $.ajax({url:"nuevoUsuario.php",data:"correo="+email+"&password="+password+"&nombre="+nombre+"&apellidos="+apellidos+"&rol=CLIENTE",method:"POST"});
 										save.done(function(msn){
 	                               			if(msn != '1'){
 	    	                               		alert("No se pudo crear la cuenta!");
@@ -581,6 +581,66 @@
  									this.stopPropagation();
  								}
  							});
+ 						}
+ 					}
+				});
+
+				$("#btn_compuesto").magnificPopup({
+					items: {
+      					src: '<div class="box_iniciar_sesion">'+
+      						'<form class="form-horizontal" name="frm_iniciar_sesion"  id="frm_iniciar_sesion"> ' +
+      						'<div id="box_iniciar_sesion_content">'+
+      						'<div class="col-md-12"> ' +
+      						'<input id="email" type="text" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 20px; color: white;" name="email" value="" placeholder="Introduce tu email">'+
+      						'</div>'+
+      						'<div class="col-md-12"><br>' +
+      						'<input id="password" type="password" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 20px; color: white;" name="password" placeholder="Introduce tu password">'+
+      						'</div>'+
+      						'</div>'+
+      						'<div>'+
+      						'<div id="box_iniciar_sesion_aceptar">'+
+      						'<button style="border:0; background-color: transparent;"><img src="images/botones/aceptar.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></button>'+
+      						'</div>'+
+      						'<div id="box_iniciar_sesion_registrar">'+
+      						'<a href="javascript:$(\'#btn_nuevo_registro\').click();" style="border:0; background-color: transparent;"><img src="images/botones/registrarse.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></a>'+
+      						'</div>'+
+      						'</div>'+
+      						'</form></div>'+
+      						'<br>'+
+      						'<div class="box_nuevo_registro">'+
+      						'<form class="form-horizontal" name="frm_nuevo_registro"  id="frm_nuevo_registro"> ' +
+      						'<div id="box_nuevo_registro_content">'+
+      						'<div class="col-md-10"> ' +
+      						'<input id="nombre" type="text" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;" name="nombre" value="" placeholder="Nombre (s)">'+
+      						'</div>'+
+      						'<div class="col-md-10"> ' +
+      						'<br><input id="apellidos" type="text" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;" name="apellidos" value="" placeholder="Apellidos">'+
+      						'</div>'+
+      						'<div class="col-md-10"> ' +
+      						'<br><select id="pais" name="pais" style="width: 80%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;">'+
+      						'<?php include_once("queryPaises.php"); ?>'+
+      						'</select>'+
+      						'</div>'+
+      						'<div class="col-md-10"> ' +
+      						'<br><input id="email" type="text" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;" name="email" value="" placeholder="Email">'+
+      						'</div>'+
+      						'<div class="col-md-10"><br>' +
+      						'<input id="password" type="password" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;" name="password" placeholder="password">'+
+      						'</div>'+
+      						'<div class="col-md-10" style="margin-top: 5px;"><br>' +
+      						'<input id="reppassword" type="password" style="width: 60%; background-color: rgb(168,37,37); border: 0; height: 19px; color: white;" name="reppassword" placeholder="Confirma tu password">'+
+      						'</div>'+
+      						'</div>'+
+      						'<div id="box_nuevo_registro_aceptar">'+
+      						'<button style="border:0; background-color: transparent;"><img src="images/botones/aceptar.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></button>'+
+      						'</div>'+
+      						'</div></form></div>',
+      					type: 'inline'
+  					},
+  					closeBtnInside: true,
+ 					callbacks : {	
+ 						open : function(){
+ 							
  						}
  					}
 				});

@@ -33,7 +33,7 @@
 	function popover_html_red_login($id,$trailer,$movie,$titulo,$director,$sipnosis,$clasificacion,$duracion,$afiche,$align){
 
 		if($movie != "NO"){
-			$btn_movie = "<center><a  href= 'javascript:$(\"#btn_iniciar_sesion\").click();' >".
+			$btn_movie = "<center><a  href= 'javascript:$(\"#btn_compuesto\").click();' >".
 					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
 		}else{
 			/*

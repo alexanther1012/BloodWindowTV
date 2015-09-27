@@ -275,7 +275,7 @@
 
 						<div class="content-panel" style="margin-bottom: 0px; background-color: rgb(53,00,00);">
 							<div style="height: 15%;" class="text-center">
-								<a href="sitgesfilmfestival.com/"><img src="images/banners/logofest2015.png" style="height:400%;width:30%;"></a>
+								<a href="http://sitgesfilmfestival.com/"><img src="images/banners/logofest2015.png" style="height:400%;width:30%;"></a>
 							</div>
 							
 						</div>
@@ -583,6 +583,10 @@
  							});
  						}
  					}
+				});
+
+				$("#btn_compuesto").magnificpop({
+					
 				});
 
 			if(open_iniciar_sesion != 0){
