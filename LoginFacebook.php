@@ -169,7 +169,107 @@
 	   		);
 	    </script>
 
-	    <div ></div>
-	    <script></script>
+	    <div id="mount-point5"></div>
+	    <script type="text/jsx">
+	    	var MyComponent3 = React.createClass({
+	    		getInitialState: function  () {
+	    			return {
+	    				count: 5
+	    			}
+	    		},
+	    		render: function  () {
+	    			return (
+	    				<h1>{this.state.count}</h1>
+	    			)
+	    		}
+	    	});
+	    	React.render(
+	    		<MyComponent3/>,
+	    		document.getElementById('mount-point5')
+	    	);
+	    </script>
+
+	    <div id="mount-point6"></div>
+	    <script type="text/jsx">
+	    	var Counter = React.createClass({
+	    		incrementCount: function  () {
+	    			this.setState({
+	    				count: this.state.count + 1
+	    			});
+	    		},
+	    		getInitialState: function  () {
+	    			return {
+	    				count: 0
+	    			}
+	    		},
+	    		render: function  () {
+	    			return (
+	    				<div class="my-component">
+	    					<h1> count: {this.state.count} </h1>
+	    					<button type="button" onClick={this.incrementCount}>Increment</button>
+	    				</div>
+	    			);
+	    		}
+	    	});
+	    	React.render(<Counter/>,document.getElementById('mount-point6'));
+	    </script>
+	    <div id="mount-point7"></div>
+	    <script type="text/jsx">
+	    	var FilteredList = React.createClass({
+	    		filterList: function  (event) {
+	    			var updatedList = this.state.initialItems;
+	    			updatedList = updatedList.filter(function  (item) {
+	    				return item.toLowerCase().search(
+	    					event.target.value.toLowerCase())!== -1;
+	    			});
+	    			this.setState({items: updatedList});
+	    		},
+	    		getInitialState: function  () {
+	    			return {
+	    				initialItems: [
+	    					"Apples",
+					         "Broccoli",
+					         "Chicken",
+					         "Duck",
+					         "Eggs",
+					         "Fish",
+					         "Granola",
+					         "Hash Browns",
+					         "hola mundo"
+	    				],
+	    				items: []
+	    			}
+	    		},
+	    		componentWillMount: function  () {
+	    			this.setState({items: this.state.initialItems})
+	    		},
+	    		render: function  () {
+	    			return (
+	    				<div className="filter-list">
+	    					<input type="text" placeholder="Serach" onChange={this.filterList}/>
+	    					<List items={this.state.items}/>
+	    				</div>
+	    			);
+	    		}
+	    	});
+
+	    	var List = React.createClass({
+	    		render: function  () {
+	    			return(
+	    				<ul>
+	    				{
+	    					this.props.items.map(function  (item) {
+	    						return <li key={item}>{item}</li>
+	    					})
+	    				}
+	    				</ul>
+	    			)
+	    		}
+	    	});
+
+	    	React.render(<FilteredList/>,document.getElementById('mount-point7'));
+	    </script>
+
+	    div
 	</body>
 </html>
