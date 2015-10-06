@@ -25,6 +25,7 @@
 		<link rel="stylesheet" href="css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/ot-menu.css" />
 		<link rel="stylesheet" href="css/main-stylesheet.css" />
+		<link rel="stylesheet" href="css/main-stylesheet-mod.css" />
 		<link rel="stylesheet" href="css/shortcodes.css" />
 		<link rel="stylesheet" href="css/responsive.css" />
 
@@ -131,6 +132,7 @@
 				});
 			}
 		</script>
+
 	<!-- END head -->
 	</head>
 
@@ -143,7 +145,7 @@
 	echo '<body onload="javascript:fnc_popvideo()">';
 		}
 	 ?>
-	 <?php include_once("analyticstracking.php") ?>
+	 <?php //include_once("analyticstracking.php") ?>
 	 <!-- Google Tag Manager -->
 	<noscript>
 		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-5R4SJD"height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -157,6 +159,7 @@
 		})(window,document,'script','dataLayer','GTM-5R4SJD');
 	</script>
 <!-- End Google Tag Manager -->
+	<!--body-->
 		<!-- BEGIN .boxed -->
 		<div class="boxed">
 			
@@ -267,17 +270,29 @@
 								
 							</div>
 						</div>
-						<div class="content-panel">
+						<div class="content-panel" id="sala_sitges">
 							<div class="panel-block banner-block" style="padding: 0px; margin-bottom: -35px">
 								<a href="#" target="_blank"><img src="images/banners/salas_virtuales_sitges.png" width="100%" height="140px" alt=""></a>
 							</div>
 						</div>
 
-						<div class="content-panel" style="margin-bottom: 0px; background-color: rgb(53,00,00);">
+						<!--div class="content-panel" style="margin-bottom: 0px; background-color: rgb(53,00,00);">
 							<div style="height: 15%;" class="text-center">
 								<a href="https://sitgesfilmfestival.com/"><img src="images/banners/logofest2015.png" style="height:400%;width:30%;"></a>
 							</div>
+						</div-->
+						<div class="content-panel" style="margin-bottom: 0px; background-color: rgb(53,00,00);">
+							<div style="height: 15px;"></div>
+							<div class="panel-block video-list grid" style="margin-left: 6%">
+
+								<?php 
+									popover_sala_voto('08','124465039','124874646','Naturaleza muerta','Gabriel Grieco','"Naturaleza muerta" arranca cuando varias personas ligadas a la industria ganadera empiezan a desaparecer. Se rumorea que han sido v&iacute;ctimas de una disputa entre rancheros y agricultores, y una periodista investiga el caso. El principal sospechoso parece ser un grupo ecologista radical, pero la verdad podr&iacute;a ser mucho m&aacute;s aterradora….','Horror','97 min.','naturaleza_muerta.jpg','right');
+									popover_sala_voto('09','124465039','124874646','Naturaleza muerta','Gabriel Grieco','"Naturaleza muerta" arranca cuando varias personas ligadas a la industria ganadera empiezan a desaparecer. Se rumorea que han sido v&iacute;ctimas de una disputa entre rancheros y agricultores, y una periodista investiga el caso. El principal sospechoso parece ser un grupo ecologista radical, pero la verdad podr&iacute;a ser mucho m&aacute;s aterradora….','Horror','97 min.','naturaleza_muerta.jpg','right');
+									popover_sala_voto('10','124465039','124874646','Naturaleza muerta','Gabriel Grieco','"Naturaleza muerta" arranca cuando varias personas ligadas a la industria ganadera empiezan a desaparecer. Se rumorea que han sido v&iacute;ctimas de una disputa entre rancheros y agricultores, y una periodista investiga el caso. El principal sospechoso parece ser un grupo ecologista radical, pero la verdad podr&iacute;a ser mucho m&aacute;s aterradora….','Horror','97 min.','naturaleza_muerta.jpg','right');
+									popover_sala_voto('11','124465039','124874646','Naturaleza muerta','Gabriel Grieco','"Naturaleza muerta" arranca cuando varias personas ligadas a la industria ganadera empiezan a desaparecer. Se rumorea que han sido v&iacute;ctimas de una disputa entre rancheros y agricultores, y una periodista investiga el caso. El principal sospechoso parece ser un grupo ecologista radical, pero la verdad podr&iacute;a ser mucho m&aacute;s aterradora….','Horror','97 min.','naturaleza_muerta.jpg','left');
+								 ?>
 							
+							</div>
 						</div>
 
 					<!-- END .with-sidebar-layout -->
@@ -404,6 +419,7 @@
 		<!-- End wowslider -->
 		<!-- Magnific-popup -->
 		<script type="text/javascript" src="jscript/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="jscript/facebook.js"></script>
 		<!-- End Magnific-popup -->
 		<?php
 			popover_js('02');
@@ -718,6 +734,7 @@
  						}
  					}
 				});
+
 
 			if(open_iniciar_sesion != 0){
 				$("#btn_iniciar_sesion").click();

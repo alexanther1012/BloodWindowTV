@@ -274,6 +274,11 @@
 			element.append("<span class='hoveringel'><i><img src='images/botones/ver_trailer.png' style='width: 180px; height: 48px; margin-top: 50%; margin-left: 5%'></i></span>").children(".hoveringel").css("line-height", element.children("img").height()+"px").css("font-size", (element.children("img").height()/3.3)+"px");
 		});
 
+		jQuery(".img-hover-effect-vote").each(function() {
+			var element = jQuery(this);
+			element.append("<span class='hoveringel'><i><img src='images/botones/ver_corto.png' style='width: 180px; height: 48px; margin-top: 50%; margin-left: 5%'></i></span>").children(".hoveringel").css("line-height", element.children("img").height()+"px").css("font-size", (element.children("img").height()/3.3)+"px");
+		});
+
 
 		// Accordion
 		jQuery(".accordion .item > h5").click(function(){

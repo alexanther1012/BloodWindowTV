@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php include('popover.php'); ?>
 <?php include('magnificpop.php');?>
-<?php header('Content-Type: text/html; charset=UTF-8');  ?>
 <html lang="es">
 	<head>
 		<title>Facebook Login JavaScript Example</title>
@@ -10,13 +9,13 @@
 
 		<meta name="description" content="BloodWindowTV, es una plataforma donde directores, escritores, productores, artistas visuales y cineastas se puedan encontrar e impulsar en conjunto logrando que sus peliculas puedan alcanzar un público deseoso de ver sus producciones.Es una plataforma de formación, desarrollo y busqueda de coproducción">
 		<meta name="keywords" content="BloodWindowTV.com, BloodWindow, BloodWindow TV, Blood Window TV, blood, window, tv, mercado, terror, fantasia, peliculas, cortometrajes, genero, latino, cine.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /-->
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="images/favicon.jpg"  />
 
 		<!-- Bootstrap Core CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- End Bootstrap Core CSS -->
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' />
@@ -24,7 +23,7 @@
 		<link rel="stylesheet" href="css/ot-menu.css" />
 		<link rel="stylesheet" href="css/main-stylesheet.css" />
 		<link rel="stylesheet" href="css/shortcodes.css" />
-		<link rel="stylesheet" href="css/responsive.css" />
+		<link rel="stylesheet" href="css/responsive.css" /-->
 
 		<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
 		<link rel="stylesheet" type="text/css" href="engine1/style.css" />
@@ -110,20 +109,27 @@
 		  function testAPI() {
 		    console.log('Welcome!  Fetching your information.... ');
 		    FB.api('/me', function(response) {
-		      console.log('Successful login for: ' + response.name);
-		      document.getElementById('status').innerHTML =
+		      //console.log('Successful login for: ' + response.email );
+		      console.log(JSON.stringify(response));
+		      document.getElementById('email').innerHTML =
 		        'Thanks for logging in, ' + response.name + '!';
 		    });
+		    
 		  }
 		</script>
 
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+
+		<div id="status">
+		</div>
 		<!--
 		  Below we include the Login Button social plugin. This button uses
 		  the JavaScript SDK to present a graphical Login button that triggers
 		  the FB.login() function when clicked.
 		-->
-		<!--?php popup_login_facebook() ?-->
-		<div id="mount-point1"></div>
+		
+		<!--div id="mount-point1"></div>
 	    <script type="text/jsx">
 	    	React.render(
 	    		<h1>Hello, world!!</h1>,
@@ -270,6 +276,6 @@
 	    	React.render(<FilteredList/>,document.getElementById('mount-point7'));
 	    </script>
 
-	    div
+	    div-->
 	</body>
 </html>

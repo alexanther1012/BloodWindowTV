@@ -259,7 +259,7 @@
 									else{
 								?>
 
-								<a href="javascript:$('#btn_iniciar_sesion').click();"><img src="images/banners/dia_muertos.jpg" width="100%" height="460px" alt="Dia de muertos"></a>
+								<a id="btn_compuesto" href=""><img src="images/banners/dia_muertos.jpg" width="100%" height="460px" alt="Dia de muertos"></a>
 
 								<?php
 									}
@@ -585,8 +585,138 @@
  					}
 				});
 
-				$("#btn_compuesto").magnificpop({
-					
+				$("#btn_compuesto").magnificPopup({
+					items: {
+      					src: '<div>'+
+	      						'<div class="box_iniciar_sesion_comp">'+
+		      						'<form class="form-horizontal" name="frm_iniciar_sesion"  id="frm_iniciar_sesion">'+
+		      							'<div id="box_iniciar_sesion_content_comp">'+
+		      								'<div class="col-md-12"> ' +
+		      									'<input id="email" type="text" style="background-color: transparent; border: 0; height: 20px; color: white;" name="email" value="" placeholder="Introduce tu email">'+
+		      								'</div>'+
+			      							'<div class="col-md-12">' +
+			      								'<input id="password" type="password" style="background-color: transparent; border: 0; height: 20px; color: white;" name="password" placeholder="Introduce tu password">'+
+			      							'</div>'+
+			      						'</div>'+
+		      							'<div>'+
+		      								'<div id="box_iniciar_sesion_aceptar">'+
+		      									'<button style="border:0; background-color: transparent;"><img src="images/botones/aceptar.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></button>'+
+		      								'</div>'+
+			      							'<div id="box_iniciar_sesion_registrar_comp">'+
+			      								'<a href="javascript:$(\'#btn_nuevo_registro\').click();" style="border:0; background-color: transparent;"><img src="images/botones/registrarse.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></a>'+
+			      							'</div>'+
+			      						'</div>'+
+		      						'</form>'+
+		      					'</div>'+
+		      					'<div class="box_nuevo_registro_comp">'+
+      								'<form class="form-horizontal" name="frm_nuevo_registro"  id="frm_nuevo_registro"> ' +
+      									'<div id="box_nuevo_registro_content_comp">'+
+      										'<div class="col-md-10"> ' +
+      											'<input id="nombre" type="text" style="width: 60%; background-color: transparent; border: 0; height: 19px; color: white;" name="nombre" value="" placeholder="Nombre (s)">'+
+      										'</div>'+
+      										'<div class="col-md-10"> ' +
+      											'<input id="apellidos" type="text" style="width: 60%; background-color: transparent; border: 0; height: 19px; color: white;" name="apellidos" value="" placeholder="Apellidos">'+
+      										'</div>'+
+      										'<div class="col-md-10"> ' +
+      											'<select id="pais" name="pais" style="width: 80%; background-color: transparent; border: 0; height: 19px; color: gray;">'+
+      												'<?php include("queryPaises.php") ?>'+
+      											'</select>'+
+      										'</div>'+
+      										'<div class="col-md-10"> ' +
+      											'<input id="email" type="text" style="width: 60%; background-color: transparent; border: 0; height: 19px; color: white;" name="email" value="" placeholder="Email">'+
+      										'</div>'+
+      										'<div class="col-md-10">' +
+      											'<input id="password" type="password" style="width: 60%; background-color: transparent; border: 0; height: 19px; color: white;" name="password" placeholder="password">'+
+      										'</div>'+
+      										'<div class="col-md-10" style="margin-top: 5px;">' +
+      											'<input id="reppassword" type="password" style="width: 60%; background-color:transparent; border: 0; height: 19px; color: white;" name="reppassword" placeholder="Confirma tu password">'+
+      										'</div>'+
+      									'</div>'+
+      									'<div id="box_nuevo_registro_aceptar">'+
+      										'<button style="border:0; background-color: transparent;"><img src="images/botones/aceptar.png" style="width: 130px; height: 45px; border:0; background-color: transparent;" /></button>'+
+      									'</div>'+
+      								'</form>'+
+      							'</div>'+
+      						'</div>',
+      					type: 'inline'
+  					},
+  					closeBtnInside: true,
+ 					callbacks : {	
+ 						open : function(){
+ 							$("#box_iniciar_sesion_aceptar").click(function () {
+ 								$("#frm_iniciar_sesion").validate({
+									rules:{
+                                		email:{required: true, email: true},
+                                		password:{required: true, minlength: 6, maxlength: 30}
+                            		},
+                            		highlight: function(element){$(element).parent().parent().addClass("has-error");},
+                            		unhighlight: function(element){$(element).parent().parent().removeClass("has-error");}
+ 								});
+ 								if($("#frm_iniciar_sesion").valid()){
+ 									var email = $("#email").val();
+ 									var password = $("#password").val();
+									var login = $.ajax({url:"login.php",data:"correo="+email+"&password="+password+"&rol=CLIENTE",method:"POST"});
+    	    	                    login.done(function(msn){
+    	    	                    	if(msn != '1'){
+    	    	                       		alert("Datos de acceso incorrectos!");		
+    	    	                       	}else{
+    	    	                       		document.location.reload(true);
+    	    	                       	}
+    	    	                    });
+    	    	                    return false;
+ 								}else{
+ 									this.stopPropagation();
+ 								}
+ 							});
+
+ 							$("#box_nuevo_registro_aceptar").click(function () {
+
+								$("#frm_nuevo_registro").validate({
+									rules:{
+										nombre:{required: true, minlength: 2, maxlength: 50},
+										apellidos:{required: true, minlength: 2, maxlength: 50},
+                                		email:{required: true, email: true},
+                                		password:{required: true, minlength: 6, maxlength: 30},
+                                		reppassword:{required: true, minlength: 6, maxlength: 30}
+                            		},
+                            		highlight: function(element){$(element).parent().parent().addClass("has-error");},
+                            		unhighlight: function(element){$(element).parent().parent().removeClass("has-error");}
+ 								}); 
+ 								if($("#frm_nuevo_registro").valid()){
+ 									var nombre = $("#nombre").val();
+ 									var apellidos = $("#apellidos").val();
+ 									var pais = $("#pais").val();
+ 									var email = $("#email").val();
+ 									var password = $("#password").val();
+									var reppassword = $("#reppassword").val();
+									if(password == reppassword){
+ 										var save = $.ajax({url:"nuevoUsuario.php",data:"correo="+email+"&password="+password+"&nombre="+nombre+"&apellidos="+apellidos+"&rol=CLIENTE",method:"POST"});
+										save.done(function(msn){
+	                               			if(msn != '1'){
+	    	                               		alert("No se pudo crear la cuenta!");
+    	    	                       		}else{
+    	    	                       			var login = $.ajax({url:"login.php",data:"correo="+email+"&password="+password+"&rol=CLIENTE",method:"POST"});
+    	    	                       			login.done(function(msn){
+    	    	                       				if(msn != '1'){
+    	    	                       					alert("Error inesperado!");		
+    	    	                       				}else{
+    	    	                       					document.location.reload(true);
+    	    	                       				}
+    	    	                       			});
+    	    	                       			return false;
+    	    	                       		}
+                	    	        	});
+                	    	        	return false;
+									}else{
+										alert("El password no es valido");
+										return false;								
+									} 									
+ 								}else{
+ 									this.stopPropagation();
+ 								}
+ 							});
+ 						}
+ 					}
 				});
 
 			if(open_iniciar_sesion != 0){

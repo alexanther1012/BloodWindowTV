@@ -36,10 +36,7 @@
 			$btn_movie = "<center><a  href= 'javascript:$(\"#btn_compuesto\").click();' >".
 					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
 		}else{
-			/*
-			$btn_movie = "<center><a>".
-					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
-			*/
+			$btn_movie = "";
 		}
 		if($trailer != "NO"){
 			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
@@ -69,19 +66,36 @@
 			$btn_movie = "<center><a  href= 'https://player.vimeo.com/video/".$movie."'  id='movie_".$id."' >".
 					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
 		}else{
-			/*$btn_movie = "<center><a>".
-					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
-			*/
+			$btn_movie = "";
 		}
 		if($trailer != "NO"){
 			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
-			echo "<div class='item-header'>";
-			echo "<a  href= 'https://player.vimeo.com/video/".$trailer."' class='img-hover-effect loadingvideo'  id='popup_".$id."' ". 
-			 	"data-content='<div><p><strong>Director: </strong>".$director."</p><p>".$sipnosis."</p><p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p></div>' ".
-				 " rel='popover' data-placement='".$align."' data-original-title='<h3 style=\"color: #ffffff\">".$titulo."</h3>' data-trigger='hover' >".
-			 	"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' /></a>".
-			 	"</div><div class='item-content'>".
-			 	"<h3><center><a ><font family='Roboto' size='4px' style='color: #F68491'>".$titulo."</font></a></center></h3>".$btn_movie."</div></div>";
+				echo "<div class='item-header'>";
+					echo "<a  href= 'https://player.vimeo.com/video/".$trailer."' class='img-hover-effect loadingvideo'  id='popup_".$id."' ". 
+			 			"data-content='".
+			 				"<div>".
+			 					"<p><strong>Director: </strong>".$director."</p>".
+			 					"<p>".$sipnosis."</p>".
+			 					"<p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p>".
+			 				"</div>' ".
+				 		" rel='popover' data-placement='".$align.
+				 		"' data-original-title=".
+				 			"'<h3 style=\"color: #ffffff\">".$titulo."</h3>'".
+				 		" data-trigger='hover' >".
+			 				"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' />".
+			 			"</a>".
+			 		"</div>".
+			 	"<div class='item-content'>".
+			 		"<h3>".
+			 			"<center>".
+			 				"<a >".
+			 					"<font family='Roboto' size='4px' style='color: #F68491'>".$titulo."</font>".
+			 				"</a>".
+			 			"</center>".
+			 		"</h3>".
+			 		$btn_movie.
+			 	"</div>".
+			"</div>";
 		}else{
 			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
 			echo "<div class='item-header'>";
@@ -119,9 +133,7 @@
 			$btn_movie = "<center><a  href= 'https://player.vimeo.com/video/".$movie."'  id='movie_".$id."' >".
 					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
 		}else{
-			/*$btn_movie = "<center><a>".
-					"<img src=\"images/botones/ver_pelicula.png\" style=\"width: 120px; height: 35px; border:0; background-color: rgb(53,00,00);\" /></a></center>";
-			*/
+			$btn_movie = "";
 		}
 		if($trailer != "NO"){
 			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
@@ -153,6 +165,159 @@
 		echo "});";
 		echo "</script>";
 	}
+
+	function popover_sala_voto($id,$corto,$votar,$titulo,$director,$sipnosis,$clasificacion,$duracion,$afiche,$align){
+		if($votar != "NO"){
+			$btn_votar = "<div class=\"col-12-lg text-center\">".
+							"<div class=\"col-2-lg text-center\">".
+								"<a id=\"btn_votar".$id."\" href=\"#\">".
+									"<img src=\"images/botones/votar_mano.png\" style=\"width: 50px; height: 50px; border:0; background-color: rgb(53,00,00);\">".
+								"</a>".
+							"</div>".
+							"<div class=\"col-10-lg text-center\">".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".
+									"100 votos".
+								"</font>".
+							"</div>".
+						"</div>";
+		}else{
+			$btn_votar = "";
+		}
+		if($corto != "NO"){
+			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
+				echo "<div class='item-header'>";
+					echo "<a  href= 'https://player.vimeo.com/video/".$corto."' class='img-hover-effect-vote loadingvideo'  id='popup_".$id."' ". 
+					"data-content='".
+						"<div>".
+							"<p><strong>Director: </strong>".$director."</p>".
+							"<p>".$sipnosis."</p>".
+							"<p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p>".
+						"</div>' ".
+					" rel='popover' data-placement='".$align."' data-original-title='".
+						"<h3 style=\"color: #ffffff\">".$titulo."</h3>'".
+					" data-trigger='hover' >".
+						"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' />".
+					"</a>".
+				"</div>".
+				"<div class='item-content'>".
+					"<h3>".
+						"<center>".
+							"<a >".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".
+									$titulo.
+								"</font>".
+							"</a>".
+						"</center>".
+					"</h3>".
+					$btn_votar.
+				"</div>".
+			"</div>";
+		}else{
+			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
+				echo "<div class='item-header'>";
+					echo "<a  class='loadingvideo'  id='popup_".$id."' ". 
+					"data-content='".
+						"<div>".
+							"<p><strong>Director: </strong>".$director."</p>".
+							"<p>".$sipnosis."</p>".
+							"<p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p>".
+						"</div>' ".
+					" rel='popover' data-placement='".$align."' data-original-title='".
+						"<h3 style=\"color: #ffffff\">".$titulo."</h3>'".
+					" data-trigger='hover' >".
+						"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' />".
+					"</a>".
+				"</div>".
+				"<div class='item-content'>".
+					"<h3>".
+						"<center>".
+							"<a >".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".$titulo."</font>".
+							"</a>".
+						"</center>".
+					"</h3>".
+					$btn_votar.
+				"</div>".
+			"</div>";
+		}
+	}
+
+	function popover_sala_voto2($id,$corto,$votar,$titulo,$director,$sipnosis,$clasificacion,$duracion,$afiche,$align){
+		if($votar != "NO"){
+			$btn_votar = "<div class=\"col-12-lg text-center\">".
+							"<div class=\"col-2-lg text-center\">".
+								"<a id=\"btn_votar".$id."\" href=\"#\">".
+									"<img src=\"images/botones/votar.png\" style=\"width: 50px; height: 50px; border:0; background-color: rgb(53,00,00);\">".
+								"</a>".
+							"</div>".
+							"<div class=\"col-10-lg text-center\">".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".
+									"100 votos".
+								"</font>".
+							"</div>".
+						"</div>";
+		}else{
+			$btn_votar = "";
+		}
+		if($corto != "NO"){
+			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
+				echo "<div class='item-header'>";
+					echo "<a  href= 'https://player.vimeo.com/video/".$corto."' class='img-hover-effect-vote loadingvideo'  id='popup_".$id."' ". 
+					"data-content='".
+						"<div>".
+							"<p><strong>Director: </strong>".$director."</p>".
+							"<p>".$sipnosis."</p>".
+							"<p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p>".
+						"</div>' ".
+					" rel='popover' data-placement='".$align."' data-original-title='".
+						"<h3 style=\"color: #ffffff\">".$titulo."</h3>'".
+					" data-trigger='hover' >".
+						"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' />".
+					"</a>".
+				"</div>".
+				"<div class='item-content'>".
+					"<h3>".
+						"<center>".
+							"<a >".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".
+									$titulo.
+								"</font>".
+							"</a>".
+						"</center>".
+					"</h3>".
+					$btn_votar.
+				"</div>".
+			"</div>";
+		}else{
+			echo "<div class='item' style='background-color: rgb(53,00,00);'>";
+				echo "<div class='item-header'>";
+					echo "<a  class='loadingvideo'  id='popup_".$id."' ". 
+					"data-content='".
+						"<div>".
+							"<p><strong>Director: </strong>".$director."</p>".
+							"<p>".$sipnosis."</p>".
+							"<p><strong>Clasificación: </strong>".$clasificacion."<strong>  Duración: </strong>".$duracion."</p>".
+						"</div>' ".
+					" rel='popover' data-placement='".$align."' data-original-title='".
+						"<h3 style=\"color: #ffffff\">".$titulo."</h3>'".
+					" data-trigger='hover' >".
+						"<img src='images/aspect-px.png' width='16' height='9' class='aspect-px' rel='images/afiches/".$afiche."' alt='' />".
+					"</a>".
+				"</div>".
+				"<div class='item-content'>".
+					"<h3>".
+						"<center>".
+							"<a >".
+								"<font family='Roboto' size='4px' style='color: #F68491'>".$titulo."</font>".
+							"</a>".
+						"</center>".
+					"</h3>".
+					$btn_votar.
+				"</div>".
+			"</div>";
+		}
+	}
+
 	function popup_login_facebook(){
 		echo "<div class='box_facebook_login'>";
 		echo "<div class='col-12-lg text-center' id='loginFacebook'>";
@@ -169,7 +334,6 @@
 					echo "</fb:login-button>";
 				echo "</div>";
 				echo "<div class='col-4-lg text-center'></div>";
-				
 			echo "</div>";
 			echo "<div class='col-4-lg text-center'></div>";
 			echo "</div>";

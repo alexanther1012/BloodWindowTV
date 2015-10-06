@@ -178,6 +178,7 @@ img.aspect-px {
 
 .video-thumb:after,
 .slider-image:after,
+.img-hover-effect-vote:after,
 .img-hover-effect:after {
 	display: block;
 	content: '';
@@ -217,7 +218,7 @@ img.aspect-px {
 	background: #eee url(../images/video-load.gif) no-repeat center center;
 }
 
-.img-hover-effect-vote
+.img-hover-effect-vote:before,
 .img-hover-effect:before {
 	display: block;
 	content: '';
@@ -236,16 +237,20 @@ img.aspect-px {
 	-o-transition: all 0.2s;
 }
 
+.img-hover-effect-vote:hover:before,
 .img-hover-effect:hover:before {
 	opacity: 1;
 	filter: alpha(opacity=100);
 }
 
+.img-hover-effect-vote.loadingvideo .hoveringel,
+.img-hover-effect-vote.loadingvideo:before,
 .img-hover-effect.loadingvideo .hoveringel,
 .img-hover-effect.loadingvideo:before {
 	display: none!important;
 }
 
+.img-hover-effect-vote .hoveringel,
 .img-hover-effect .hoveringel {
 	display: block;
 	position: absolute!important;
@@ -271,6 +276,7 @@ img.aspect-px {
 	transform: rotate(120deg);
 }
 
+.img-hover-effect-vote:hover .hoveringel,
 .img-hover-effect:hover .hoveringel {
 	top: 0px;
 	left: 0px;
@@ -281,6 +287,7 @@ img.aspect-px {
 	transform: rotate(0deg);
 }
 
+.img-hover-effect-vote .hoveringel i.fa,
 .img-hover-effect .hoveringel i.fa {
 	font-size: 10px!important;
 	transition: all 0.2s;
@@ -289,57 +296,67 @@ img.aspect-px {
 	-o-transition: all 0.2s;
 }
 
+.img-hover-effect-vote .hoveringel i.fa,
 .img-hover-effect:hover .hoveringel i.fa {
 	font-size: inherit!important;
 }
 
+.img-hover-effect-vote img,
 .img-hover-effect img {
 	display: block;
 }
 
-
+.menu-content.video-list .img-hover-effect-vote,
 .menu-content.video-list .img-hover-effect {
 	overflow: hidden;
 }
 
+.menu-content.video-list .img-hover-effect-vote .hoveringel,
+.video-list.grid .img-hover-effect-vote .hoveringel,
 .menu-content.video-list .img-hover-effect .hoveringel,
 .video-list.grid .img-hover-effect .hoveringel {
 	line-height: 118px!important;
 	font-size: 35px!important;
 }
 
+.video-list.hdgrid .img-hover-effect-vote .hoveringel,
 .video-list.hdgrid .img-hover-effect .hoveringel {
 	line-height: 182px!important;
 	font-size: 55px!important;
 }
 
+.video-list.list .img-hover-effect-vote .hoveringel,
 .video-list.list .img-hover-effect .hoveringel {
 	line-height: 166px!important;
 	font-size: 50px!important;
 }
 
+.video-list.hdlist .img-hover-effect-vote .hoveringel,
 .video-list.hdlist .img-hover-effect .hoveringel {
 	line-height: 377px!important;
 	font-size: 114px!important;
 }
 
 
-
+.without-sidebar-layout .video-list.grid .img-hover-effect-vote .hoveringel,
 .without-sidebar-layout .video-list.grid .img-hover-effect .hoveringel {
 	line-height: 176px!important;
 	font-size: 53px!important;
 }
 
+.without-sidebar-layout .video-list.hdgrid .img-hover-effect-vote .hoveringel,
 .without-sidebar-layout .video-list.hdgrid .img-hover-effect .hoveringel {
 	line-height: 271px!important;
 	font-size: 82px!important;
 }
 
+.without-sidebar-layout .video-list.list .img-hover-effect-vote .hoveringel,
 .without-sidebar-layout .video-list.list .img-hover-effect .hoveringel {
 	line-height: 251px!important;
 	font-size: 76px!important;
 }
 
+.without-sidebar-layout .video-list.hdlist .img-hover-effect-vote .hoveringel,
 .without-sidebar-layout .video-list.hdlist .img-hover-effect .hoveringel {
 	line-height: 563px!important;
 	font-size: 170px!important;
